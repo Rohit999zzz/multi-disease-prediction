@@ -15,7 +15,7 @@ symptoms = joblib.load("symptom_list.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
 # Setup Gemini API
-genai.configure(api_key="AIzaSyDHBdeBXi8Vo-a2UxBigypcTASPcNHkMhA")
+genai.configure(api_key="API_KEY")
 gemini = genai.GenerativeModel("gemini-2.0-flash")
 
 app = Flask(__name__)
