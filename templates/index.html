@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Predictor (Explainable AI)</title>
+</head>
+<body>
+    <h2>Disease Prediction from Natural Language Symptoms</h2>
+
+    <form action="/predict" method="POST">
+        <label>Enter your symptoms (e.g., I have headache and chest pain):</label><br>
+        <textarea name="user_symptoms" rows="5" cols="50">{{ input_text or '' }}</textarea><br><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if extracted %}
+        <p><strong>Recognized Symptoms:</strong> {{ extracted }}</p>
+    {% endif %}
+
+    {% if prediction %}
+        <h3>🩺 Predicted Disease: {{ prediction }}</h3>
+    {% endif %}
+
+    {% if shap_image %}
+        <h4>🔍 Explanation (SHAP):</h4>
+        <img src="{{ shap_image }}" alt="SHAP Explanation" width="700">
+    {% endif %}
+</body>
+</html>
